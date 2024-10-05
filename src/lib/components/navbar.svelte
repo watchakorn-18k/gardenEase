@@ -77,7 +77,7 @@
 			<li><a href="/">Home</a></li>
 			<li><a href="/my-garden">My Garden</a></li>
 			<li><a href="/my-garden">Comunity</a></li>
-			<li><a href="/my-garden">Shop</a></li>
+			<li><a href="/shop">Shop</a></li>
 		</ul>
 	</div>
 	<div class="navbar-end">
