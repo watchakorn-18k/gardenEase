@@ -105,7 +105,8 @@
 				</ul>
 			</div>
 		{:else}
-			<button class="btn" disabled={!statusLogin}>Get Started</button>
+			<button class="btn" disabled={statusLogin} on:click={() => goto('/login')}>Get Started</button
+			>
 		{/if}
 	</div>
 </div>
