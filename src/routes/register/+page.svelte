@@ -8,6 +8,7 @@
 
 	async function handleRegister() {
 		const response = await createAccount(email, password, name);
+		// @ts-ignore
 		if (response.status) {
 			goto('/login');
 		}
