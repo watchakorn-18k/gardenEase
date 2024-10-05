@@ -16,7 +16,7 @@
 		loginBtn.disabled = true;
 		const response = await checkLoginStatus();
 		if (response.status) {
-			goto('/my-plant');
+			goto('/my-garden');
 		} else {
 			emailInput.disabled = false;
 			passwordInput.disabled = false;
@@ -31,7 +31,7 @@
 		const response = await login(email, password);
 		if (response.current) {
 			statusLogon.set(true);
-			goto('/my-plant');
+			goto('/my-garden');
 		} else {
 			alert('กรุณาตรวจสอบอีเมลและรหัสผ่านอีกครั้ง');
 		}
