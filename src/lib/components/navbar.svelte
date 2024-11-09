@@ -34,7 +34,7 @@
 	const signOut = async () => {
 		await logout();
 		statusLogon.set(false);
-		goto('/login');
+		goto(base+'/login');
 	};
 </script>
 
