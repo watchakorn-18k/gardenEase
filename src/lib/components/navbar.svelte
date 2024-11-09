@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import { checkLoginStatus, logout } from '$lib/services/appwrite_service';
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
@@ -58,26 +59,26 @@
 				</svg>
 			</div>
 			<ul class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-				<li><a href="/">Home</a></li>
+				<li><a href="{base}/">Home</a></li>
 				{#if statusLogin}
-					<li><a href="/my-garden">My Garden</a></li>
-					<li><a href="/my-garden">Comunity</a></li>
-					<li><a href="/my-garden">Shop</a></li>
-					<li><a href="/logout" on:click|preventDefault={signOut}>Logout</a></li>
+					<li><a href="{base}/my-garden">My Garden</a></li>
+					<li><a href="{base}/my-garden">Comunity</a></li>
+					<li><a href="{base}/my-garden">Shop</a></li>
+					<li><a href="{base}/logout" on:click|preventDefault={signOut}>Logout</a></li>
 				{:else}
-					<li><a href="/login">Login</a></li>
-					<li><a href="/register">Register</a></li>
+					<li><a href="{base}/login">Login</a></li>
+					<li><a href="{base}/register">Register</a></li>
 				{/if}
 			</ul>
 		</div>
-		<a href="/" class="btn btn-ghost text-xl">GardenEase</a>
+		<a href="{base}/" class="btn btn-ghost text-xl">GardenEase</a>
 	</div>
 	<div class="navbar-center hidden lg:flex">
 		<ul class="menu menu-horizontal px-1">
-			<li><a href="/">Home</a></li>
-			<li><a href="/my-garden">My Garden</a></li>
-			<li><a href="/my-garden">Comunity</a></li>
-			<li><a href="/shop">Shop</a></li>
+			<li><a href="{base}/">Home</a></li>
+			<li><a href="{base}/my-garden">My Garden</a></li>
+			<li><a href="{base}/my-garden">Comunity</a></li>
+			<li><a href="{base}/shop">Shop</a></li>
 		</ul>
 	</div>
 	<div class="navbar-end">
@@ -96,11 +97,11 @@
 					class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
 				>
 					{#if statusLogin}
-						<li><a href="/my-garden">My Garden</a></li>
-						<li><a href="/logout" on:click|preventDefault={signOut}>Logout</a></li>
+						<li><a href="{base}/my-garden">My Garden</a></li>
+						<li><a href="{base}/logout" on:click|preventDefault={signOut}>Logout</a></li>
 					{:else}
-						<li><a href="/login">Login</a></li>
-						<li><a href="/register">Register</a></li>
+						<li><a href="{base}/login">Login</a></li>
+						<li><a href="{base}/register">Register</a></li>
 					{/if}
 				</ul>
 			</div>

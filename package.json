@@ -34,6 +34,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@sveltejs/adapter-static": "^3.0.6",
 		"@tabler/icons-svelte": "^3.19.0",
 		"appwrite": "^16.0.2",
 		"magic-string": "^0.30.11"

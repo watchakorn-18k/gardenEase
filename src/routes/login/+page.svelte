@@ -1,4 +1,5 @@
 <script lang="ts">
+	import {base } from '$app/paths';
 	import { login } from '$lib/services/appwrite_service';
 	import { goto } from '$app/navigation';
 	import { checkLoginStatus } from '$lib/services/appwrite_service';
@@ -8,7 +9,7 @@
 	//component
 	import { IconMail, IconLock } from '@tabler/icons-svelte';
 
-	let emailInput, passwordInput, loginBtn;
+	let emailInput: HTMLInputElement, passwordInput: HTMLInputElement, loginBtn: HTMLButtonElement;
 
 	onMount(async () => {
 		emailInput.disabled = true;
@@ -39,7 +40,7 @@
 </script>
 
 <div class="flex flex-col items-center justify-center m-10">
-	<div class="flex flex-col lg:w-1/4 h-full justify-center gap-4">
+	<div class="flex flex-col w-full xl:w-1/4 h-full justify-center gap-4">
 		<h1 class="text-3xl font-bold text-center">Login</h1>
 		<form on:submit|preventDefault={handleLogin} class="flex flex-col gap-2">
 			<label for="email" class="input input-bordered flex items-center gap-2">
@@ -64,8 +65,11 @@
 				/>
 				<IconLock />
 			</label>
+			<p class="text-right text-xs text-primary"><a href="{base}/account/forgot" rel="noopener noreferrer">forgot password</a></p>
 			<button type="submit" class="btn btn-primary" bind:this={loginBtn} disabled>Login</button>
 		</form>
+		<p class="text-center text-sm link text-primary"><a href="{base}/register" rel="noopener noreferrer">you don't have an account?</a>
+		</p>	
 	</div>
 </div>
 
