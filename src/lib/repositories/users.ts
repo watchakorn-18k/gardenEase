@@ -8,7 +8,7 @@ const DATABASE_ID = import.meta.env.VITE_DATABASE_ID;
 // ดึงข้อมูลทั้งหมดจาก collection users
 export async function insertUser(user: Users): Promise<boolean> {
 	try {
-		console.log('user.user_id', user.user_id); // แสดง user_id เพื่อตรวจสอบ
+		// console.log('user.user_id', user.user_id); // แสดง user_id เพื่อตรวจสอบ
 
 		if (!user.user_id) {
 			throw new Error('user_id is required');
@@ -29,7 +29,7 @@ export async function getUser(user_id: string): Promise<Users | null> {
 
 		// ตรวจสอบว่ามีเอกสารใน response.documents
 		if (response.documents.length === 0) {
-			console.log(`No user found with user_id: ${user_id}`);
+			// console.log(`No user found with user_id: ${user_id}`);
 			return null; // คืนค่า null หากไม่พบผู้ใช้
 		}
 

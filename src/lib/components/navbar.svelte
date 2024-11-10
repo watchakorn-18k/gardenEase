@@ -12,12 +12,12 @@
 
 	// ฟังก์ชันอัพเดตสถานะการล็อกอิน
 	const updateLoginStatus = async () => {
-		const response = await checkLoginStatus();
+		const response: any = await checkLoginStatus();
 		statusLogon.set(response.status);
 		if (response.status) {
-			const user = await getUser(response.data.$id);
+			const user:any = await getUser(response.data.$id);
 			userData = user;
-			console.log('userData', userData);
+			// console.log('userData', userData);
 		}
 	};
 

@@ -1,6 +1,8 @@
 import { account } from '$lib/services/client';
 import type { Users } from '$lib/entities/users';
 import { insertUser } from '$lib/repositories/users';
+import { goto } from '$app/navigation';
+import { base } from '$app/paths';
 
 export async function login(email: string, password: string) {
 	try {
@@ -21,7 +23,8 @@ export async function createAccount(email: string, password: string, name: strin
 			user_id: response.$id || 'test_1234',
 			name: name,
 			email: email,
-			phone: ''
+			phone: '',
+			image_url: ''
 		};
 		if (await insertUser(userData)) {
 			console.log('User data inserted successfully');
@@ -36,14 +39,14 @@ export async function createAccount(email: string, password: string, name: strin
 export async function checkLoginStatus() {
 	try {
 		const user = await account.get(); // ตรวจสอบข้อมูลบัญชีผู้ใช้
-		console.log('User is logged in:', user); // แสดงข้อมูลของผู้ใช้ที่เข้าสู่ระบบ
+		// console.log('User is logged in:', user); // แสดงข้อมูลของผู้ใช้ที่เข้าสู่ระบบ
 		return { status: true, data: user };
 	} catch (error) {
-		if (error.code === 401) {
-			console.log('User is not logged in'); // ผู้ใช้ยังไม่ได้เข้าสู่ระบบ
-		} else {
-			console.error('Error checking login status:', error);
-		}
+		// if (error.code === 401) {
+		// 	console.log('User is not logged in'); // ผู้ใช้ยังไม่ได้เข้าสู่ระบบ
+		// } else {
+		// 	// console.error('Error checking login status:', error);
+		// }
 		return { status: false, data: error };
 	}
 }
@@ -58,4 +61,29 @@ export async function logout(): Promise<boolean> {
 		console.error('Error during logout:', error);
 		return false;
 	}
+}
+
+export async function forgotPassword(email: string) {
+	const BASE_URL = import.meta.env.VITE_BASE_URL;
+	const promise = account.createRecovery(email, `${BASE_URL}/account/reset-password`);
+
+	promise.then(function (response) {
+		console.log(response); // Success
+	}, function (error) {
+		console.log(error); // Failure
+	});
+}
+
+export async function resetPassword(userID: string, secret: string, password: string) {
+	const promise = account.updateRecovery(
+		userID,
+		secret,
+		password
+	);
+
+	promise.then(function (response) {
+		return true
+	}, function (error) {
+		return false
+	});
 }

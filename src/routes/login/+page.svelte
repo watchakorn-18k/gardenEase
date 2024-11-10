@@ -1,5 +1,5 @@
 <script lang="ts">
-	import {base } from '$app/paths';
+	import { base } from '$app/paths';
 	import { login } from '$lib/services/appwrite_service';
 	import { goto } from '$app/navigation';
 	import { checkLoginStatus } from '$lib/services/appwrite_service';
@@ -17,7 +17,7 @@
 		loginBtn.disabled = true;
 		const response = await checkLoginStatus();
 		if (response.status) {
-			goto('/my-garden');
+			goto(base + '/my-garden');
 		} else {
 			emailInput.disabled = false;
 			passwordInput.disabled = false;
@@ -32,7 +32,7 @@
 		const response = await login(email, password);
 		if (response.current) {
 			statusLogon.set(true);
-			goto('/my-garden');
+			goto(base + '/my-garden');
 		} else {
 			alert('กรุณาตรวจสอบอีเมลและรหัสผ่านอีกครั้ง');
 		}
@@ -65,11 +65,13 @@
 				/>
 				<IconLock />
 			</label>
-			<p class="text-right text-xs text-primary"><a href="{base}/account/forgot" rel="noopener noreferrer">forgot password</a></p>
+			<p class="text-right text-xs text-primary">
+				<a href="{base}/account/forgot" rel="noopener noreferrer">forgot password</a>
+			</p>
 			<button type="submit" class="btn btn-primary" bind:this={loginBtn} disabled>Login</button>
 		</form>
-		<p class="text-center text-sm link text-primary"><a href="{base}/register" rel="noopener noreferrer">you don't have an account?</a>
-		</p>	
+		<p class="text-center text-sm link text-primary">
+			<a href="{base}/register" rel="noopener noreferrer">you don't have an account?</a>
+		</p>
 	</div>
 </div>
-
