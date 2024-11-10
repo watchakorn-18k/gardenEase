@@ -15,7 +15,7 @@
 		const response: any = await checkLoginStatus();
 		statusLogon.set(response.status);
 		if (response.status) {
-			const user:any = await getUser(response.data.$id);
+			const user: any = await getUser(response.data.$id);
 			userData = user;
 			// console.log('userData', userData);
 		}
@@ -34,7 +34,7 @@
 	const signOut = async () => {
 		await logout();
 		statusLogon.set(false);
-		goto(base+'/login');
+		goto(base + '/login');
 	};
 </script>
 
@@ -106,7 +106,8 @@
 				</ul>
 			</div>
 		{:else}
-			<button class="btn" disabled={statusLogin} on:click={() => goto('/login')}>Get Started</button
+			<button class="btn" disabled={statusLogin} on:click={() => goto(base + '/login')}
+				>Get Started</button
 			>
 		{/if}
 	</div>
