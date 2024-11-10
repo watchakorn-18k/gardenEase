@@ -3,5 +3,9 @@
 	import Navbar from '$lib/components/navbar.svelte';
 </script>
 
+<svelte:head>
+	<title>GardenEase</title>
+</svelte:head>
+
 <Navbar />
 <slot />
