@@ -67,11 +67,11 @@
 	</div>
 </dialog>
 
-<div class="w-full xl:flex flex-col items-center justify-center">
+<div class="w-full md:flex flex-col items-center justify-center">
 <h1 class="mt-10 text-2xl text-center">Change Password</h1>
 	<form
 		on:submit={handeleResetPassword}
-		class="flex flex-col items-center justify-center gap-2 mt-4 m-10 xl:w-2/4"
+		class="flex flex-col items-center justify-center gap-2 mt-4 m-10 md:w-2/4"
 	>
 		<label class="input input-bordered flex items-center gap-2 w-full">
 			<IconLock />

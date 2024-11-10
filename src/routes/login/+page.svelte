@@ -40,7 +40,7 @@
 </script>
 
 <div class="flex flex-col items-center justify-center m-10">
-	<div class="flex flex-col w-full xl:w-1/4 h-full justify-center gap-4">
+	<div class="flex flex-col w-full md:w-1/4 h-full justify-center gap-4">
 		<h1 class="text-3xl font-bold text-center">Login</h1>
 		<form on:submit|preventDefault={handleLogin} class="flex flex-col gap-2">
 			<label for="email" class="input input-bordered flex items-center gap-2">

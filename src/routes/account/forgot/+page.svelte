@@ -32,8 +32,8 @@
 </dialog>
 
 <h1 class="mt-10 text-2xl text-center">Forgot Password</h1>
-<div class="w-full xl:flex flex-col items-center justify-center">
-	<form on:submit|preventDefault={handleForgetPassword} class="flex flex-col gap-2 mt-4 m-10 xl:w-1/4">
+<div class="w-full md:flex flex-col items-center justify-center">
+	<form on:submit|preventDefault={handleForgetPassword} class="flex flex-col gap-2 mt-4 m-10 md:w-1/4">
 		<label for="email" class="input input-bordered flex items-center gap-2">
 			<input type="email" class="grow" placeholder="Email" bind:value={email} />
 			<IconMail />

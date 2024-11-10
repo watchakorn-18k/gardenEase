@@ -38,9 +38,9 @@
 	}
 </script>
 
-<div class="w-full xl:flex flex-col items-center justify-center">
+<div class="w-full md:flex flex-col items-center justify-center">
 	<h1 class="text-3xl font-bold text-center mt-10">Register</h1>
-	<form on:submit|preventDefault={handleRegister} class="flex flex-col gap-2 mt-4 m-10 xl:w-1/4">
+	<form on:submit|preventDefault={handleRegister} class="flex flex-col gap-2 mt-4 m-10 md:w-1/4">
 		<label class="input input-bordered flex items-center gap-2">
 			<IconMail />
 			<input type="email" class="grow" placeholder="Email" bind:value={email} />
