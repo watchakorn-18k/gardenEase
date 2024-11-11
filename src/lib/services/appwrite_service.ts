@@ -4,6 +4,8 @@ import { insertUser } from '$lib/repositories/users';
 import { goto } from '$app/navigation';
 import { base } from '$app/paths';
 
+const BASE_URL = import.meta.env.VITE_BASE_URL;
+
 export async function login(email: string, password: string) {
 	try {
 		const response = await account.createEmailPasswordSession(email, password);
@@ -64,7 +66,6 @@ export async function logout(): Promise<boolean> {
 }
 
 export async function forgotPassword(email: string) {
-	const BASE_URL = import.meta.env.VITE_BASE_URL;
 	const promise = account.createRecovery(email, `${BASE_URL}/account/reset-password`);
 
 	promise.then(function (response) {
