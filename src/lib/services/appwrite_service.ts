@@ -7,11 +7,11 @@ import { base } from '$app/paths';
 export async function login(email: string, password: string) {
 	try {
 		const response = await account.createEmailPasswordSession(email, password);
-		console.log('Login success', response);
+		// console.log('Login success', response);
 		return response;
 	} catch (error) {
-		console.error('Login failed', error);
-		throw error;
+		// console.error('Login failed', error);
+		return error;
 	}
 }
 

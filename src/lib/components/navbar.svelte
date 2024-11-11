@@ -75,10 +75,12 @@
 	</div>
 	<div class="navbar-center hidden lg:flex">
 		<ul class="menu menu-horizontal px-1">
-			<li><a href="{base}/">Home</a></li>
-			<li><a href="{base}/my-garden">My Garden</a></li>
-			<li><a href="{base}/my-garden">Comunity</a></li>
-			<li><a href="{base}/shop">Shop</a></li>
+			{#if statusLogin}
+				<li><a href="{base}/">Home</a></li>
+				<li><a href="{base}/my-garden">My Garden</a></li>
+				<li><a href="{base}/my-garden">Comunity</a></li>
+				<li><a href="{base}/shop">Shop</a></li>
+			{/if}
 		</ul>
 	</div>
 	<div class="navbar-end">

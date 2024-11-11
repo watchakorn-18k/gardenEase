@@ -8,6 +8,8 @@
 
 	//component
 	import { IconMail, IconLock } from '@tabler/icons-svelte';
+	import ErrorText from '$lib/components/error_text.svelte';
+	import { text } from '@sveltejs/kit';
 
 	let emailInput: HTMLInputElement, passwordInput: HTMLInputElement, loginBtn: HTMLButtonElement;
 
@@ -27,14 +29,15 @@
 
 	let email = '';
 	let password = '';
+	let textError = '';
 
 	async function handleLogin() {
-		const response = await login(email, password);
+		const response: any = await login(email, password);
 		if (response.current) {
 			statusLogon.set(true);
 			goto(base + '/my-garden');
 		} else {
-			alert('กรุณาตรวจสอบอีเมลและรหัสผ่านอีกครั้ง');
+			textError = response.message;
 		}
 	}
 </script>
@@ -65,6 +68,7 @@
 				/>
 				<IconLock />
 			</label>
+			<ErrorText {textError} />
 			<p class="text-right text-xs text-primary">
 				<a href="{base}/account/forgot" rel="noopener noreferrer">forgot password</a>
 			</p>
