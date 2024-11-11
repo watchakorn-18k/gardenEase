@@ -4,7 +4,7 @@ import { insertUser } from '$lib/repositories/users';
 import { goto } from '$app/navigation';
 import { base } from '$app/paths';
 
-const BASE_URL = import.meta.env.VITE_BASE_URL;
+const BASE_URL = process.env.VITE_BASE_URL;
 
 export async function login(email: string, password: string) {
 	try {
